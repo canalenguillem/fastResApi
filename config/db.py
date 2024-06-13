@@ -1,3 +1,8 @@
-from sqlalchemy import create_engine,MetaData
+from sqlalchemy import create_engine, MetaData
+from sqlalchemy.orm import sessionmaker
 
-create_engine("mysql+pymysql://root:root@localhost:3306/storedb")
+engine = create_engine(
+    "mysql+pymysql://guillem:guillem@localhost:3306/storedb")
+meta = MetaData()
+Session = sessionmaker(bind=engine)
+conn = engine.connect()
